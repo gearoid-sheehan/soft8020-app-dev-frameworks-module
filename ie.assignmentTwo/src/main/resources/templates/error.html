@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+	
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+					<h1>You do not have sufficient login privileges to view this page. Admin login required</h1>
+					<a href="/logout">Logout</a>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

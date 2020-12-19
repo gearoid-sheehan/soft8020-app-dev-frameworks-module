@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+					<h1><span th:text="#{edit.editafilmstitle}"></span></h1>
+					
+						<form method="post" th:action="@{editfilmstitle}" th:object="${updateFilmTitleForm}">
+						<label for="oldTitle" th:text="#{edit.selectfilmtitle}"></label>
+							<select th:field="*{oldTitle}" class="form-control">
+							     <option value="0"></option>
+							     <option th:each="film : ${films}"
+							             th:value="${film.title}"
+							             th:selected="${film.title eq lastselected}"
+							             th:text="${film.title}">
+							     </option>
+							</select>
+							<br>
+							<br>
+							<label for="newTitle" th:text="#{edit.newfilmtitle}"></label>
+							<input type="text" th:field="*{newTitle}"/><br>
+							<br>
+							<input type="submit" th:value="#{edit.add}"/>
+							<br>
+							<div th:if="${filmtitleupdated}" class="successMsg">
+								<span th:text="#{edit.filmtitleupdatedmsg}"></span> <span th:text="${filmtitleupdated}"></span> 
+							</div>
+							
+						</form>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

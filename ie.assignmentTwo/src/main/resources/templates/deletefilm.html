@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+					<h1><span th:text="#{edit.deleteafilm}"></span></h1>
+						<form method="post" th:action="@{deletefilm}" th:object="${deleteFilmTitleForm}">
+						
+						<label for="deleteTitle" th:text="#{edit.selectfilmtitle}"></label>
+							<select th:field="*{deleteTitle}" class="form-control">
+							     <option value="0"></option>
+							     <option th:each="film : ${films}"
+							             th:value="${film.title}"
+							             th:selected="${film.title eq lastselected}"
+							             th:text="${film.title}">
+							     </option>
+							</select>
+							<br>
+							<br>
+							<input type="submit" th:value="#{edit.delete}"/>
+							<br>
+							<br>
+							<div th:if="${filmdeleted}" class="successMsg">
+								<span th:text="${filmdeleted}"></span> <span th:text="#{edit.filmdeletedmsg}"></span>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

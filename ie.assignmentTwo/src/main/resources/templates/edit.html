@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+						<h1><span th:text="#{edit.message}"></span></h1>
+							<nav class="navlinks">
+							<span class="accessMsg">Require User Access:</span><br>
+								<a class="button" th:text="#{edit.addadirector}" th:href="@{adddirector}">Add a director</a><br>
+								<a class="button" th:text="#{edit.addafilm}" th:href="@{addfilm}">Add a film</a><br>
+								<a class="button" th:text="#{edit.editafilmstitle}" th:href="@{editfilmstitle}">Edit a films title</a><br>
+							<span class="accessMsg">Require Admin Access:</span><br>
+								<a class="button" th:text="#{edit.deleteafilm}" th:href="@{deletefilm}">Delete a film</a><br>
+								<a class="button" th:text="#{edit.deleteadirector}" th:href="@{deletedirectorandfilms}">Delete a director and their films</a>
+							</nav>
+						</div>
+					</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>	
+	</html>

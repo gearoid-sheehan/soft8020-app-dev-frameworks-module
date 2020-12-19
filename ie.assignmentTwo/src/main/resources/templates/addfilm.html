@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+					<div class="homeContainer">
+						<div class="innerContainer">
+							<h1><span th:text="#{edit.addafilm}"></span></h1>
+							
+							<form method="post" th:action="@{addfilm}" th:object="${addFilmForm}">
+							
+								<label for="title" th:text="#{edit.addfilmtitleprompt}"></label>
+								<input type="text" th:field="*{newTitle}"/><br>
+								<br>
+								<label for="yearOfRelease" th:text="#{edit.addyearofreleaseprompt}"></label>
+								<input type="number" th:field="*{newYearOfRelease}"/><br>
+								<br>
+								
+								<label for="newDirector" th:text="#{edit.adddirectorname}"></label>
+								<select th:field="*{newDirector}" class="form-control" name="example" id="example">
+								     <option value=""></option>
+								     <option th:each="director : ${directors}"
+								             th:value="${director.directorName}"
+								             th:selected="${director.directorName eq lastselected}"
+								             th:text="${director.directorName}">
+								     </option>
+								</select>
+
+								<input type="submit" th:value="#{edit.add}"/>
+								<br>
+								<br>
+								<div th:if="${#fields.hasErrors('newTitle')}" class="errorMsg" th:errors="*{newTitle}"></div>
+								
+								<div th:if="${#fields.hasErrors('newYearOfRelease')}" class="errorMsg" th:errors="*{newYearOfRelease}"></div>
+								
+								<div th:if="${#fields.hasErrors('newDirector')}" class="errorMsg" th:errors="*{newDirector}"></div>
+								
+								<div th:if="${filmAdded}" class="successMsg">
+									<span th:text="${filmAdded}"></span> <span th:text="#{edit.filmaddedmsg}"></span>
+								</div>
+								
+							</form>
+						</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

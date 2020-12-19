@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+	
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+					<h1><span th:text="#{home.message}"></span></h1>
+						<p>Welcome to the film website, a website made specifically for Gearóid Sheehans Spring Boot Project.
+						In this website, there is a range of functionality, all to showcase his Spring Boot skills. Any user can
+						use the website to view a list of the directors in the database in alphabetical order, select a director 
+						from the list to view that director's films, and view a list of the films in the database in chronological 
+						order showing all information you have about that film. These users can also register for an account. Authenticated
+						users can add a director to the database, add a film providing the film's title, year of release and a director and
+						edit the title of a film. Administrators can delete a film and delete a director along with their films.
+						</p>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

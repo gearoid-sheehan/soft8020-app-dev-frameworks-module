@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+						<h1><span th:text="#{films.message}"></span></h1>
+						<table class="table">
+							<tr>
+							    <th>Title</th>
+							    <th>YearOfRelease</th>
+							    <th>Director</th>
+							</tr>
+							<tr th:each = "film: ${films}" th:object= "${film}">
+								<td th:text="*{title}">TITLE</td>
+								<td th:text="*{yearOfRelease}">Year Of Release</td>
+								<td th:text="*{director.directorName}">Director</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

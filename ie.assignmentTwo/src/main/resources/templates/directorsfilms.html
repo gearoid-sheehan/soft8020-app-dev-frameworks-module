@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+			
+				<div class="homeContainer">
+					<div class="innerContainer">
+						<h1><span th:text="#{directorsfilms.message}"></span></h1>
+						
+						<table class="push">
+							<tr>
+								<th>Title</th>
+								<th>YearOfRelease</th>
+							</tr>
+							<tr th:each = "film, iterationCount : ${directorsfilms}" th:class="${iterationCount.odd}? 'odd'" th:object= "${film}">
+								<td th:text="*{title}"></td>
+								<td th:text="*{yearOfRelease}"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

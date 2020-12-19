@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+	
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<main>
+					<span th:text="#{notfounderror.message}"></span>
+				</main>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

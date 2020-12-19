@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+				<div class="homeContainer">
+					<div class="innerContainer">
+						<h1><span th:text="#{edit.addadirector}"></span></h1>
+						
+						<form method="post" th:action="@{/adddirector}" th:object="${addDirectorForm}">
+							<label for="directorName" th:text="#{edit.adddirectorprompt}"></label>
+							<input type="text" th:field="*{newDirectorName}"/>
+							
+							<input type="submit" th:value="#{edit.add}"/>
+							<br>
+							<br>
+							<div class="errorMsg" th:if="${#fields.hasErrors('newDirectorName')}" th:errors="*{newDirectorName}"></div>
+							<div th:if="${duplicateDirectorName}" class="errorMsg">
+								<span th:text="${duplicateDirectorName}"></span> <span th:text="#{edit.addadirectorerror}"></span>
+							</div>
+							<div th:if="${directorAdded}" class="successMsg">
+								<span th:text="${directorAdded}"></span> <span th:text="#{edit.directoraddedmsg}"></span>
+							</div>
+						</form>
+					</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

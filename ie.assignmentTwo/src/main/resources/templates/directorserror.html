@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+		<title>The Film Website</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<header th:insert="fragments :: header"></header>
+					<div class="homeContainer">
+						<div class="innerContainer">
+							<h1><span th:text="#{edit.nodirectorsindb}"></span></h1>
+							
+							<a th:href="@{/adddirector}">Add Directors</a>
+						</div>
+				</div>
+			<footer th:insert="fragments :: footer"></footer>
+		</body>
+	</html>

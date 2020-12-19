@@ -1,0 +1,20 @@
+<!-- HEADER FRAGMENT -->
+<div class="header" th:fragment="header">
+	<h1 th:text="#{header.websitename}"></h1>
+		<nav class="navlinks">
+			<a class="button" th:text="#{fragments.home}" th:href="@{/}">Home</a>
+			<a class="button" th:text="#{fragments.directors}" th:href="@{directors}">Directors</a>
+			<a class="button" th:text="#{fragments.films}" th:href="@{films}">Films</a>
+			<a class="button" th:text="#{fragments.edit}" th:href="@{edit}">Edit Website</a>
+		</nav>
+</div>
+
+<!-- FOOTER FRAGMENT -->
+<div class="footer" th:fragment="footer" th:with="currentUrl=(${@thymeleafBeans.removeLangFromUrl()})">
+	<span>
+		<a th:href="@{${currentUrl}(lang=ie)}"><i class="flag-icon flag-icon-ie">English</i></a>
+	</span>
+	<span>
+		<a th:href="@{${currentUrl}(lang=fr)}"><i class="flag-icon flag-icon-fr">French</i></a>
+	</span>
+</div>

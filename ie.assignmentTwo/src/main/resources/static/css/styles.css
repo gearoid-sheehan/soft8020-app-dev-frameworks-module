@@ -1,0 +1,92 @@
+.header {
+	height: 40px;
+	padding: 60px;
+  	text-align: center;
+ 	background: #1B76B0;
+  	color: white;
+  	font-size: 30px;
+}
+
+.footer {
+	height: 20px;
+  	padding: 60px;
+  	text-align: center;
+  	color: white;
+  	font-size: 30px;
+  	bottom: 0;
+    left: 38%;
+}
+
+body {
+    padding:0;
+    margin:0;
+}
+
+.homeContainer {
+	width: 100%; 
+	overflow: hidden;
+  	padding-top: 70px;
+  	margin: auto;
+  	width: 100%;
+}
+
+.innerContainer {
+	margin-left: auto;
+    margin-right: auto;
+	padding-top: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+	width: 600px; 
+}
+
+table, th, td {
+  	border: 1px solid black;
+}
+
+.table {
+  	width: 100%;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+	border: 2px solid black;
+  	border-radius: 5px;
+  	border-spacing: 15px;
+    text-decoration: none;
+    color: initial;
+}
+
+navLinks {
+	padding-bottom: 70px;
+}
+
+.odd {
+	background-color: #bfeeff;
+}
+
+.errorMsg {
+	color: red;
+}
+
+.deleteDirectorContainer {
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.directorsFilmsContainer {
+	float: right;
+}
+
+.button {
+	margin: 5px;
+}
+
+.accessMsg {
+	font-weight: bold;
+}
+
+.successMsg {
+	color: green;
+}
